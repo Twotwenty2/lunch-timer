@@ -24,10 +24,11 @@
             background: var(--bg-gradient);
             background-attachment: fixed;
             color: var(--text-dark);
+            overflow: hidden;
         }
 
         .container {
-            position: relative; /* Necessary for absolute positioning of top-right icon */
+            position: relative;
             background: rgba(15, 23, 42, 0.9);
             padding: 2.5rem;
             border-radius: 30px;
@@ -36,48 +37,65 @@
             width: 420px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
         }
 
-        /* Small Clock Icon in Top Right Corner */
+        /* Clickable Corner Icon */
         .corner-icon {
             position: absolute;
             top: 20px;
             right: 25px;
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .corner-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .corner-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             fill: var(--primary-color);
-            filter: drop-shadow(0 0 5px rgba(121, 134, 203, 0.3));
+            filter: drop-shadow(0 0 8px rgba(121, 134, 203, 0.5));
         }
 
-        .container:hover .corner-icon {
-            opacity: 1;
+        /* Timezone Popup Window */
+        #timezonePopup {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            text-align: left;
         }
 
-        h1 { 
-            color: white; 
-            margin-bottom: 0.5rem;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .instruction {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .input-group {
+        .tz-row {
             display: flex;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 4px;
         }
+
+        .tz-name { color: var(--text-light); font-weight: 600; }
+        .tz-time { color: white; font-family: monospace; }
+
+        h1 { color: white; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
+        .instruction { color: var(--text-light); font-size: 0.95rem; margin-bottom: 2rem; }
+
+        .input-group { display: flex; gap: 15px; margin-bottom: 1.5rem; align-items: center; }
 
         .refresh-btn {
             background: var(--primary-color);
@@ -93,16 +111,8 @@
             box-shadow: 0 0 15px rgba(121, 134, 203, 0.4);
         }
 
-        .refresh-btn:hover {
-            transform: scale(1.1) rotate(-180deg);
-            background: #8e99d6;
-        }
-
-        .refresh-btn svg { 
-            width: 28px; 
-            height: 28px; 
-            fill: white; 
-        }
+        .refresh-btn:hover { transform: scale(1.1) rotate(-180deg); background: #8e99d6; }
+        .refresh-btn svg { width: 28px; height: 28px; fill: white; }
 
         input[type="time"] {
             flex-grow: 1;
@@ -117,12 +127,7 @@
             outline: none;
         }
 
-        .duration-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 1.5rem;
-        }
+        .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1.5rem; }
 
         .btn-choice {
             padding: 14px 5px;
@@ -135,11 +140,7 @@
             transition: all 0.2s;
         }
 
-        .btn-choice.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
+        .btn-choice.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
         .toggle-box {
             display: flex;
@@ -162,33 +163,23 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .label-text { 
-            font-size: 0.85rem; 
-            color: var(--text-light); 
-            text-transform: uppercase; 
-            letter-spacing: 0.2em;
-        }
-
-        #finalTime {
-            display: block;
-            font-size: 4rem; 
-            font-weight: 800;
-            color: white;
-            margin: 0.5rem 0;
-        }
-
-        #calcLog {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            opacity: 0.7;
-        }
+        .label-text { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.2em; }
+        #finalTime { display: block; font-size: 4rem; font-weight: 800; color: white; margin: 0.5rem 0; }
+        #calcLog { font-size: 0.8rem; color: var(--text-light); opacity: 0.7; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="corner-icon">
+    <div class="corner-icon" onclick="togglePopup()">
         <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+    </div>
+
+    <div id="timezonePopup">
+        <div class="tz-row"><span class="tz-name">Eastern</span><span class="tz-time" id="tz-et"></span></div>
+        <div class="tz-row"><span class="tz-name">Central</span><span class="tz-time" id="tz-ct"></span></div>
+        <div class="tz-row"><span class="tz-name">Mountain</span><span class="tz-time" id="tz-mt"></span></div>
+        <div class="tz-row"><span class="tz-name">Pacific</span><span class="tz-time" id="tz-pt"></span></div>
     </div>
 
     <h1>Return to desk</h1>
@@ -222,7 +213,34 @@
 <script>
     let currentDuration = 30;
 
-    window.onload = resetToNow;
+    window.onload = function() {
+        resetToNow();
+        updateUSATimes();
+        setInterval(updateUSATimes, 60000); // Update popup times every minute
+    };
+
+    function togglePopup() {
+        const popup = document.getElementById('timezonePopup');
+        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function updateUSATimes() {
+        const zones = {
+            'tz-et': 'America/New_York',
+            'tz-ct': 'America/Chicago',
+            'tz-mt': 'America/Denver',
+            'tz-pt': 'America/Los_Angeles'
+        };
+        for (const [id, zone] of Object.entries(zones)) {
+            const timeStr = new Date().toLocaleTimeString('en-US', {
+                timeZone: zone,
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById(id).innerText = timeStr;
+        }
+    }
 
     function resetToNow() {
         const d = new Date();
@@ -240,33 +258,25 @@
     function updateTime() {
         const val = document.getElementById('startTime').value;
         if (!val) return;
-
         let [h, m] = val.split(':').map(Number);
         let adjust = currentDuration;
-        let log = `${currentDuration}m break`;
-
         if (document.getElementById('walkMode').checked) {
             adjust -= 2;
-            log += ` - 2m walk`;
             document.getElementById('statusLabel').innerText = "Leave for desk at";
             document.getElementById('finalTime').style.color = "var(--buffer-color)";
         } else {
             document.getElementById('statusLabel').innerText = "Return to desk at";
             document.getElementById('finalTime').style.color = "white";
         }
-
         let totalMins = (h * 60) + m + adjust;
         if (totalMins < 0) totalMins += 1440;
-
         let resH = Math.floor((totalMins / 60) % 24);
         let resM = Math.floor(totalMins % 60);
-
         const ampm = resH >= 12 ? 'PM' : 'AM';
         const displayH = resH % 12 || 12;
         const displayM = String(resM).padStart(2, '0');
-
         document.getElementById('finalTime').innerText = `${displayH}:${displayM} ${ampm}`;
-        document.getElementById('calcLog').innerText = `(${log})`;
+        document.getElementById('calcLog').innerText = `(${currentDuration}m break${document.getElementById('walkMode').checked ? ' - 2m walk' : ''})`;
     }
 </script>
 
