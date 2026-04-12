@@ -12,7 +12,8 @@
             --text-dark: #f1f5f9;
             --text-light: #94a3b8;
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --popup-bg-solid: #161e2e; 
+            /* Solid Black for Max Readability */
+            --popup-bg-solid: #000000; 
         }
 
         body {
@@ -64,6 +65,7 @@
         .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
         .corner-icon svg { width: 20px; height: 20px; fill: var(--primary-color); display: block; }
 
+        /* SOLID BLACK POPUP WITH WHITE TEXT */
         #timezonePopup {
             display: none;
             position: absolute;
@@ -83,12 +85,14 @@
             justify-content: space-between; 
             margin-bottom: 10px; 
             font-size: 0.85rem; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly brighter line for contrast */
             padding-bottom: 6px;
         }
         
         .tz-row:last-child { border: none; margin-bottom: 0; }
-        .tz-name { color: var(--primary-color); font-weight: 700; }
+        
+        /* Updated labels and time to white */
+        .tz-name { color: #ffffff; font-weight: 700; opacity: 0.9; }
         .tz-time { color: #ffffff; font-weight: 800; font-family: 'Courier New', monospace; }
 
         h1 { color: white; margin-bottom: 0.5rem; font-size: 2.1rem; font-weight: 700; }
@@ -96,7 +100,6 @@
 
         .input-group { display: flex; gap: 12px; margin-bottom: 1.2rem; align-items: center; }
 
-        /* ANIMATED REFRESH BUTTON */
         .refresh-btn {
             background: var(--primary-color);
             border: none;
