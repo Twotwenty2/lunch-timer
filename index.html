@@ -12,7 +12,6 @@
             --text-dark: #f1f5f9;
             --text-light: #94a3b8;
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            /* Solid Black for Max Readability */
             --popup-bg-solid: #000000; 
         }
 
@@ -43,6 +42,7 @@
             box-sizing: border-box;
         }
 
+        /* Responsive scaling for mobile */
         @media (max-width: 380px) {
             .container { padding: 1.5rem; }
             h1 { font-size: 1.8rem; }
@@ -65,19 +65,30 @@
         .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
         .corner-icon svg { width: 20px; height: 20px; fill: var(--primary-color); display: block; }
 
-        /* SOLID BLACK POPUP WITH WHITE TEXT */
+        /* POSITIONED TO THE RIGHT SIDE */
         #timezonePopup {
             display: none;
             position: absolute;
-            top: 50px;
-            right: 0;
+            top: 0; 
+            left: 105%; /* Pushes it to the right of the container */
             background-color: var(--popup-bg-solid);
             border: 2px solid var(--primary-color);
             border-radius: 12px;
             padding: 16px;
             width: 190px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.9); 
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5); 
             z-index: 100;
+            text-align: left;
+        }
+
+        /* Mobile Fix: If screen is too narrow for side-popup, put it below the trigger */
+        @media (max-width: 900px) {
+            #timezonePopup {
+                left: auto;
+                right: 0;
+                top: 50px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.9);
+            }
         }
 
         .tz-row { 
@@ -85,13 +96,11 @@
             justify-content: space-between; 
             margin-bottom: 10px; 
             font-size: 0.85rem; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly brighter line for contrast */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             padding-bottom: 6px;
         }
         
         .tz-row:last-child { border: none; margin-bottom: 0; }
-        
-        /* Updated labels and time to white */
         .tz-name { color: #ffffff; font-weight: 700; opacity: 0.9; }
         .tz-time { color: #ffffff; font-weight: 800; font-family: 'Courier New', monospace; }
 
