@@ -13,6 +13,8 @@
             --text-light: #94a3b8;
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --popup-bg-solid: #000000; 
+            /* Subtle Ring Color */
+            --ring-color: rgba(121, 134, 203, 0.4);
         }
 
         body {
@@ -42,7 +44,6 @@
             box-sizing: border-box;
         }
 
-        /* Responsive scaling for mobile */
         @media (max-width: 380px) {
             .container { padding: 1.5rem; }
             h1 { font-size: 1.8rem; }
@@ -60,17 +61,26 @@
             cursor: pointer;
             z-index: 20;
             opacity: 0.8;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Animated Ring for Timezone Trigger */
+        .tz-trigger-wrapper:hover {
+            opacity: 1;
+            box-shadow: 0 0 0 2px var(--ring-color);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
         .corner-icon svg { width: 20px; height: 20px; fill: var(--primary-color); display: block; }
 
-        /* POSITIONED TO THE RIGHT SIDE */
         #timezonePopup {
             display: none;
             position: absolute;
             top: 0; 
-            left: 105%; /* Pushes it to the right of the container */
+            left: 105%; 
             background-color: var(--popup-bg-solid);
             border: 2px solid var(--primary-color);
             border-radius: 12px;
@@ -81,7 +91,6 @@
             text-align: left;
         }
 
-        /* Mobile Fix: If screen is too narrow for side-popup, put it below the trigger */
         @media (max-width: 900px) {
             #timezonePopup {
                 left: auto;
@@ -124,11 +133,12 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .refresh-btn:hover, .refresh-btn:active {
+        .refresh-btn:hover {
             transform: scale(1.1) rotate(360deg);
-            background: #8e99d6;
+            box-shadow: 0 0 0 3px var(--ring-color);
         }
 
+        /* Animated Ring for Time Input */
         input[type="time"] {
             flex-grow: 1;
             padding: 12px;
@@ -139,10 +149,18 @@
             color: white;
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input[type="time"]:hover, input[type="time"]:focus {
+            box-shadow: 0 0 0 3px var(--ring-color);
+            border-color: var(--primary-color);
         }
 
         .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }
 
+        /* Animated Ring for Buttons */
         .btn-choice {
             padding: 12px 2px;
             border-radius: 10px;
@@ -151,11 +169,17 @@
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .btn-choice.active { background: var(--primary-color); color: white; }
+        .btn-choice:hover {
+            box-shadow: 0 0 0 2px var(--ring-color);
+            background: rgba(255, 255, 255, 0.08);
+        }
 
+        .btn-choice.active { background: var(--primary-color); color: white; box-shadow: none; }
+
+        /* Animated Ring for Toggle Box */
         .toggle-box {
             display: flex;
             align-items: center;
@@ -165,6 +189,13 @@
             border-radius: 12px;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .toggle-box:hover {
+            box-shadow: 0 0 0 2px var(--ring-color);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .result-area {
