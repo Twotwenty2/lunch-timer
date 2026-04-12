@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Return to desk</title>
+    <title>You've got time</title>
     <style>
         :root {
             --primary-color: #7986cb; 
@@ -13,7 +13,6 @@
             --text-light: #94a3b8;
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --popup-bg-solid: #000000; 
-            /* Subtle Ring Color */
             --ring-color: rgba(121, 134, 203, 0.4);
         }
 
@@ -66,7 +65,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Animated Ring for Timezone Trigger */
         .tz-trigger-wrapper:hover {
             opacity: 1;
             box-shadow: 0 0 0 2px var(--ring-color);
@@ -138,7 +136,6 @@
             box-shadow: 0 0 0 3px var(--ring-color);
         }
 
-        /* Animated Ring for Time Input */
         input[type="time"] {
             flex-grow: 1;
             padding: 12px;
@@ -160,7 +157,6 @@
 
         .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }
 
-        /* Animated Ring for Buttons */
         .btn-choice {
             padding: 12px 2px;
             border-radius: 10px;
@@ -179,7 +175,6 @@
 
         .btn-choice.active { background: var(--primary-color); color: white; box-shadow: none; }
 
-        /* Animated Ring for Toggle Box */
         .toggle-box {
             display: flex;
             align-items: center;
@@ -238,8 +233,8 @@
         </div>
     </div>
 
-    <h1>Return to desk</h1>
-    <p class="instruction">Break & lunch return tracker</p>
+    <h1>You've got time</h1>
+    <p class="instruction">Simple break & lunch tracker</p>
     
     <div class="input-group">
         <button class="refresh-btn" onclick="resetToNow()">
