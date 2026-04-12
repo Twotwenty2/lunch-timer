@@ -40,42 +40,53 @@
             z-index: 10;
         }
 
-        /* Clickable Corner Icon */
-        .corner-icon {
+        /* Timezone Trigger Area */
+        .tz-trigger-wrapper {
             position: absolute;
             top: 20px;
             right: 25px;
-            opacity: 0.6;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             cursor: pointer;
             z-index: 20;
+            transition: all 0.3s ease;
+            opacity: 0.7;
         }
 
-        .corner-icon:hover {
+        .tz-trigger-wrapper:hover {
             opacity: 1;
-            transform: scale(1.1);
+        }
+
+        .tz-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
         }
 
         .corner-icon svg {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: var(--primary-color);
-            filter: drop-shadow(0 0 8px rgba(121, 134, 203, 0.5));
+            filter: drop-shadow(0 0 8px rgba(121, 134, 203, 0.4));
+            display: block;
         }
 
         /* Timezone Popup Window */
         #timezonePopup {
             display: none;
             position: absolute;
-            top: 60px;
-            right: 20px;
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            top: 55px;
+            right: 0;
+            background: rgba(30, 41, 59, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 15px;
-            width: 200px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
+            width: 210px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            backdrop-filter: blur(15px);
             z-index: 100;
             text-align: left;
         }
@@ -89,8 +100,9 @@
             padding-bottom: 4px;
         }
 
+        .tz-row:last-child { border: none; margin-bottom: 0; }
         .tz-name { color: var(--text-light); font-weight: 600; }
-        .tz-time { color: white; font-family: monospace; }
+        .tz-time { color: white; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
 
         h1 { color: white; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
         .instruction { color: var(--text-light); font-size: 0.95rem; margin-bottom: 2rem; }
@@ -170,16 +182,19 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="corner-icon" onclick="togglePopup()">
-        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-    </div>
-
-    <div id="timezonePopup">
-        <div class="tz-row"><span class="tz-name">Eastern</span><span class="tz-time" id="tz-et"></span></div>
-        <div class="tz-row"><span class="tz-name">Central</span><span class="tz-time" id="tz-ct"></span></div>
-        <div class="tz-row"><span class="tz-name">Mountain</span><span class="tz-time" id="tz-mt"></span></div>
-        <div class="tz-row"><span class="tz-name">Pacific</span><span class="tz-time" id="tz-pt"></span></div>
+<div class="container" id="appContainer">
+    <div class="tz-trigger-wrapper" id="tzTrigger" onclick="event.stopPropagation(); togglePopup();">
+        <span class="tz-label">Time Zones</span>
+        <div class="corner-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        
+        <div id="timezonePopup">
+            <div class="tz-row"><span class="tz-name">Eastern</span><span class="tz-time" id="tz-et"></span></div>
+            <div class="tz-row"><span class="tz-name">Central</span><span class="tz-time" id="tz-ct"></span></div>
+            <div class="tz-row"><span class="tz-name">Mountain</span><span class="tz-time" id="tz-mt"></span></div>
+            <div class="tz-row"><span class="tz-name">Pacific</span><span class="tz-time" id="tz-pt"></span></div>
+        </div>
     </div>
 
     <h1>Return to desk</h1>
@@ -216,7 +231,16 @@
     window.onload = function() {
         resetToNow();
         updateUSATimes();
-        setInterval(updateUSATimes, 60000); // Update popup times every minute
+        setInterval(updateUSATimes, 30000); 
+
+        // Close popup when clicking anywhere else
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('timezonePopup');
+            const trigger = document.getElementById('tzTrigger');
+            if (!trigger.contains(event.target)) {
+                popup.style.display = 'none';
+            }
+        });
     };
 
     function togglePopup() {
