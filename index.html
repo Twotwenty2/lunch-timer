@@ -10,10 +10,11 @@
             --accent-color: #f06292;   
             --buffer-color: #26a69a; 
             --text-dark: #f1f5f9;
-            --text-light: #94a3b8;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --popup-bg-solid: #000000; 
-            --ring-color: rgba(121, 134, 203, 0.4);
+            --text-light: #cbd5e1; /* Lightened for better visibility */
+            /* LIGHTER BACKGROUND GRADIENT */
+            --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            --popup-bg-solid: #0f172a; 
+            --ring-color: rgba(121, 134, 203, 0.5);
         }
 
         body {
@@ -31,7 +32,7 @@
 
         .container {
             position: relative;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95); /* Increased opacity for bright rooms */
             padding: 2rem;
             border-radius: 30px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -39,11 +40,10 @@
             width: 90%;
             max-width: 420px;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-sizing: border-box;
         }
 
-        /* Responsive scaling */
         @media (max-width: 380px) {
             .container { padding: 1.5rem; }
             h1 { font-size: 1.8rem; }
@@ -60,19 +60,18 @@
             gap: 8px;
             cursor: pointer;
             z-index: 20;
-            opacity: 0.8;
+            opacity: 0.9;
             padding: 5px 10px;
             border-radius: 20px;
             transition: all 0.3s ease;
         }
 
         .tz-trigger-wrapper:hover {
-            opacity: 1;
             box-shadow: 0 0 0 2px var(--ring-color);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
+        .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: white; }
         .corner-icon svg { 
             width: 20px; 
             height: 20px; 
@@ -121,7 +120,6 @@
             align-items: center; 
         }
 
-        /* --- THE NEW CUSTOM TIME INPUT CONTAINER --- */
         .custom-time-wrapper {
             position: relative;
             flex-grow: 1;
@@ -132,48 +130,42 @@
         input[type="time"] {
             width: 100%;
             padding: 12px;
-            padding-right: 40px; /* Space for the custom icon */
+            padding-right: 40px;
             border-radius: 15px;
             font-size: 1.5rem;
             font-weight: 700;
             text-align: center;
             color: white;
-            background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
             outline: none;
             appearance: none;
             -webkit-appearance: none;
         }
 
-        /* HIDE THE BROWSER ICON ENTIRELY */
         input[type="time"]::-webkit-calendar-picker-indicator {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: auto;
-            height: auto;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: auto; height: auto;
             background: transparent;
             color: transparent;
             cursor: pointer;
         }
 
-        /* OUR CUSTOM WHITE SVG CLOCK */
         .manual-clock-icon {
             position: absolute;
             right: 15px;
-            pointer-events: none; /* Let clicks pass through to the input */
+            pointer-events: none;
             width: 20px;
             height: 20px;
             fill: white;
-            opacity: 0.9;
+            opacity: 1;
         }
 
         input[type="time"]:hover, input[type="time"]:focus {
             box-shadow: 0 0 0 3px var(--ring-color);
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             border-color: var(--primary-color);
         }
 
@@ -198,30 +190,30 @@
         .btn-choice {
             padding: 12px 2px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .btn-choice.active { background: var(--primary-color); color: white; }
+        .btn-choice.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
 
         .toggle-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.08);
             padding: 12px 15px;
             border-radius: 12px;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
         }
 
         .result-area {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             padding: 1.5rem;
             border-radius: 20px;
             display: flex;
@@ -231,7 +223,7 @@
 
         #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0.2rem 0; }
         .ampm { font-size: 1.5rem; margin-left: 5px; vertical-align: middle; }
-        #calcLog { font-size: 0.75rem; color: var(--text-light); opacity: 0.7; }
+        #calcLog { font-size: 0.75rem; color: #cbd5e1; opacity: 1; }
     </style>
 </head>
 <body>
@@ -278,7 +270,7 @@
     </label>
 
     <div class="result-area">
-        <span class="label-text" id="statusLabel" style="font-size: 0.75rem; letter-spacing: 0.15em; color: var(--text-light); text-transform: uppercase;">Return to desk at</span>
+        <span class="label-text" id="statusLabel" style="font-size: 0.75rem; letter-spacing: 0.15em; color: white; text-transform: uppercase;">Return to desk at</span>
         <div id="timeDisplay">
             <span id="finalTime">--:--</span>
         </div>
@@ -307,7 +299,8 @@
     function updateUSATimes() {
         const zones = {'tz-et':'America/New_York','tz-ct':'America/Chicago','tz-mt':'America/Denver','tz-pt':'America/Los_Angeles'};
         for (const [id, zone] of Object.entries(zones)) {
-            document.getElementById(id).innerText = new Date().toLocaleTimeString('en-US', {timeZone: zone, hour: '2-digit', minute: '2-digit', hour12: true});
+            const el = document.getElementById(id);
+            if(el) el.innerText = new Date().toLocaleTimeString('en-US', {timeZone: zone, hour: '2-digit', minute: '2-digit', hour12: true});
         }
     }
 
@@ -320,7 +313,8 @@
     function setMode(m) {
         currentDuration = m;
         document.querySelectorAll('.btn-choice').forEach(b => b.classList.remove('active'));
-        document.querySelector(`.btn-choice[data-min="${m}"]`).classList.add('active');
+        const activeBtn = document.querySelector(`.btn-choice[data-min="${m}"]`);
+        if(activeBtn) activeBtn.classList.add('active');
         updateTime();
     }
 
