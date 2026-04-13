@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>You've got time</title>
+    <meta name="title" content="You've got time - Simple Break & Lunch Tracker">
+    <meta name="description" content="A high-performance break tracker designed for shift workers. Never miss a clock-in with our built-in walk-back buffer.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youve-got-time.netlify.app/"> 
+    <meta property="og:title" content="You've got time - Simple Break & Lunch Tracker">
+    <meta property="og:description" content="The intuitive way to track your breaks. Features a unique 2-minute walk-back buffer to keep your adherence perfect.">
+    <meta property="og:image" content="https://yourwebsite.com/preview-image.jpg"> 
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://youve-got-time.netlify.app/">
+    <meta property="twitter:title" content="You've got time - Simple Break & Lunch Tracker">
+    <meta property="twitter:description" content="Built for performance. Optimized for your workspace. Simple, accurate break tracking.">
+    <meta property="twitter:image" content="https://yourwebsite.com/preview-image.jpg">
+
     <style>
         :root {
             --primary-color: #7986cb; 
@@ -14,8 +30,8 @@
             --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             --popup-bg-solid: #0f172a; 
             --ring-color: rgba(121, 134, 203, 0.5);
-            /* Highlight Color */
             --highlight-bg: rgba(255, 255, 255, 0.25);
+            --coffee-color: #FFDD00;
         }
 
         body {
@@ -109,7 +125,6 @@
         h1 { color: white; margin-bottom: 0.5rem; font-size: 2.1rem; font-weight: 700; }
         .instruction { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
 
-        /* Input Group Highlights */
         .input-group { 
             display: flex; 
             gap: 12px; 
@@ -141,12 +156,10 @@
             -webkit-appearance: none;
         }
 
-        /* HIGHLIGHT EFFECT: Time Field */
         input[type="time"]:hover, input[type="time"]:focus {
             background: var(--highlight-bg);
             border-color: white;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-            transform: translateY(-1px);
         }
 
         input[type="time"]::-webkit-calendar-picker-indicator {
@@ -188,7 +201,6 @@
 
         .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }
 
-        /* HIGHLIGHT EFFECT: Duration Buttons */
         .btn-choice {
             padding: 12px 2px;
             border-radius: 10px;
@@ -210,10 +222,8 @@
             background: var(--primary-color); 
             color: white; 
             border-color: var(--primary-color);
-            transform: translateY(0);
         }
 
-        /* HIGHLIGHT EFFECT: Toggle Box */
         .toggle-box {
             display: flex;
             align-items: center;
@@ -244,6 +254,34 @@
         #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0.2rem 0; }
         .ampm { font-size: 1.5rem; margin-left: 5px; vertical-align: middle; }
         #calcLog { font-size: 0.75rem; color: #cbd5e1; }
+
+        /* BUY ME A COFFEE STYLING */
+        .coffee-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--coffee-color);
+            transform: translateY(-2px);
+        }
+
+        .coffee-icon {
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -296,6 +334,10 @@
         </div>
         <span id="calcLog"></span>
     </div>
+
+    <a href="https://www.buymeacoffee.com/YOUR_USERNAME" class="coffee-link" target="_blank">
+        <span class="coffee-icon">☕</span> Saved you from a late clock-in? Buy me a coffee.
+    </a>
 </div>
 
 <script>
