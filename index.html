@@ -72,7 +72,15 @@
         }
 
         .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
-        .corner-icon svg { width: 20px; height: 20px; fill: var(--primary-color); display: block; }
+        
+        /* UPDATED: Corner Icon is now White */
+        .corner-icon svg { 
+            width: 20px; 
+            height: 20px; 
+            fill: #ffffff; 
+            filter: drop-shadow(0 0 4px rgba(121, 134, 203, 0.6));
+            display: block; 
+        }
 
         #timezonePopup {
             display: none;
@@ -136,7 +144,6 @@
             box-shadow: 0 0 0 3px var(--ring-color);
         }
 
-        /* Styling for the Time Input and its Clock Icon */
         input[type="time"] {
             flex-grow: 1;
             padding: 12px;
@@ -149,13 +156,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             outline: none;
-            /* Support for white clock icon in Webkit browsers (Chrome/Safari/Edge) */
             color-scheme: dark; 
         }
 
-        /* Targeted white clock icon fix */
         input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(1); /* Flips black to white */
+            filter: invert(1); 
             cursor: pointer;
             opacity: 1;
         }
