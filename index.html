@@ -14,6 +14,7 @@
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --popup-bg-solid: #000000; 
             --ring-color: rgba(121, 134, 203, 0.4);
+            --icon-luminous: #c5cae9; 
         }
 
         body {
@@ -71,15 +72,26 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .tz-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-light); }
+        .tz-label { 
+            font-size: 0.7rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            color: var(--text-light); 
+        }
         
-        /* UPDATED: Corner Icon is now White */
         .corner-icon svg { 
             width: 20px; 
             height: 20px; 
             fill: #ffffff; 
-            filter: drop-shadow(0 0 4px rgba(121, 134, 203, 0.6));
+            filter: drop-shadow(0 0 2px var(--icon-luminous))
+                    drop-shadow(0 0 6px var(--primary-color))
+                    drop-shadow(0 0 10px var(--primary-color));
             display: block; 
+            transition: transform 0.3s ease;
+        }
+
+        .tz-trigger-wrapper:hover .corner-icon svg {
+            transform: scale(1.15);
         }
 
         #timezonePopup {
@@ -144,6 +156,7 @@
             box-shadow: 0 0 0 3px var(--ring-color);
         }
 
+        /* Time input styling */
         input[type="time"] {
             flex-grow: 1;
             padding: 12px;
@@ -156,13 +169,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             outline: none;
-            color-scheme: dark; 
         }
 
+        /* Target the manual clock icon and make it white */
         input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(1); 
+            filter: invert(1);
             cursor: pointer;
-            opacity: 1;
         }
 
         input[type="time"]:hover, input[type="time"]:focus {
