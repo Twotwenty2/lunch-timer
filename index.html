@@ -136,6 +136,7 @@
             box-shadow: 0 0 0 3px var(--ring-color);
         }
 
+        /* Styling for the Time Input and its Clock Icon */
         input[type="time"] {
             flex-grow: 1;
             padding: 12px;
@@ -148,6 +149,15 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             outline: none;
+            /* Support for white clock icon in Webkit browsers (Chrome/Safari/Edge) */
+            color-scheme: dark; 
+        }
+
+        /* Targeted white clock icon fix */
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1); /* Flips black to white */
+            cursor: pointer;
+            opacity: 1;
         }
 
         input[type="time"]:hover, input[type="time"]:focus {
