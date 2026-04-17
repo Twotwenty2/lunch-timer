@@ -12,7 +12,6 @@
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <meta name="theme-color" content="#1e293b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,70 +32,39 @@
             --ring-color: rgba(121, 134, 203, 0.5);
             --highlight-bg: rgba(255, 255, 255, 0.25);
             --coffee-color: #FFDD00;
+            --alert-red: #ff5252;
         }
 
         body {
             font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-dark);
-            overflow-x: hidden;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; margin: 0; background: var(--bg-gradient);
+            background-attachment: fixed; color: var(--text-dark); overflow-x: hidden;
         }
 
         .container {
-            position: relative;
-            background: rgba(15, 23, 42, 0.95);
-            padding: 2rem;
-            border-radius: 30px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            width: 90%;
-            max-width: 420px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-sizing: border-box;
+            position: relative; background: rgba(15, 23, 42, 0.95);
+            padding: 2rem; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center; width: 90%; max-width: 420px; backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15); box-sizing: border-box;
         }
 
         .tz-trigger-wrapper {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 20;
-            opacity: 0.7;
-            padding: 5px 10px;
-            border-radius: 20px;
-            transition: all 0.2s ease;
+            position: absolute; top: 20px; right: 25px; display: flex; align-items: center;
+            gap: 6px; cursor: pointer; z-index: 20; opacity: 0.7; padding: 5px 10px;
+            border-radius: 20px; transition: all 0.2s ease;
         }
         .tz-trigger-wrapper:hover { opacity: 1; background: rgba(255, 255, 255, 0.1); }
         .tz-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: white; letter-spacing: 0.05em; }
 
         #timezonePopup {
-            display: none;
-            position: absolute;
-            top: 45px; 
-            right: 0; 
-            background-color: var(--popup-bg-solid);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 16px;
-            width: 240px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.7); 
-            z-index: 100;
-            text-align: left;
+            display: none; position: absolute; top: 45px; right: 0; background-color: var(--popup-bg-solid);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 16px;
+            width: 240px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); z-index: 100; text-align: left;
         }
 
         .tz-group-label { font-size: 0.6rem; color: var(--primary-color); text-transform: uppercase; font-weight: 800; margin: 10px 0 5px 0; letter-spacing: 0.1em; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tz-row { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.75rem; }
-        .tz-name { color: var(--text-light); }
         .tz-time { color: #ffffff; font-weight: 700; font-family: monospace; }
 
         h1 { color: white; margin-bottom: 0.2rem; font-size: 2.1rem; font-weight: 700; }
@@ -118,11 +86,13 @@
 
         .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }
         .btn-choice { padding: 12px 2px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: white; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s ease; }
-        .btn-choice:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
         .btn-choice.active { background: var(--primary-color); border-color: var(--primary-color); box-shadow: 0 0 15px rgba(121, 134, 203, 0.4); }
 
         .toggle-box { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 12px 15px; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s ease; }
         .toggle-box:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--buffer-color); }
+        
+        /* DYNAMIC BUFFER LABEL STYLE */
+        #bufferLabel { transition: color 0.3s ease; font-size: 0.9rem; font-weight: 600; color: var(--text-light); }
 
         #mainActionBtn {
             width: 100%; padding: 15px; border-radius: 15px; border: none; font-size: 1rem; font-weight: 800;
@@ -131,7 +101,6 @@
             background: linear-gradient(to right, var(--primary-color), #5c6bc0);
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        #mainActionBtn:hover { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 6px 20px rgba(121, 134, 203, 0.3); }
         #mainActionBtn.reset-mode { background: #455a64; }
 
         .result-area { 
@@ -140,7 +109,7 @@
             min-height: 160px; justify-content: center;
         }
 
-        #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0; line-height: 1; }
+        #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0; line-height: 1; transition: color 0.5s ease; }
         .ampm { font-size: 1.5rem; margin-left: 5px; }
         #countdown { font-size: 1.1rem; font-weight: 600; color: var(--accent-color); margin-top: 10px; min-height: 1.2em; }
 
@@ -195,7 +164,7 @@
     </div>
 
     <label class="toggle-box">
-        <span style="font-size: 0.9rem; color: var(--buffer-color); font-weight: 600;">2m Walk Back Buffer</span>
+        <span id="bufferLabel">2m Walk Back Buffer</span>
         <input type="checkbox" id="walkMode" onchange="calculatePreview()">
     </label>
 
@@ -212,7 +181,7 @@
         <div id="countdown"></div>
     </div>
 
-    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank">☕Found this useful? Buy me a coffe or a small portion of one.</a>
+    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank">☕ Buy me a coffee.</a>
 </div>
 
 <script>
@@ -234,7 +203,7 @@
                 });
             `], {type: 'application/javascript'});
             const workerUrl = URL.createObjectURL(blob);
-            navigator.serviceWorker.register(workerUrl).catch(err => console.log('SW failed', err));
+            navigator.serviceWorker.register(workerUrl);
         });
     }
 
@@ -277,21 +246,21 @@
 
     function calculatePreview() {
         const val = document.getElementById('startTime').value;
-        if (!val || timerRunning) return;
+        const walkActive = document.getElementById('walkMode').checked;
         
+        // DYNAMIC COLOR CHANGE FOR BUFFER LABEL
+        document.getElementById('bufferLabel').style.color = walkActive ? "var(--buffer-color)" : "var(--text-light)";
+
+        if (!val || timerRunning) return;
         let [h, m] = val.split(':').map(Number);
         let adjust = currentDuration;
-        const walkActive = document.getElementById('walkMode').checked;
         if (walkActive) adjust -= 2;
-        
         let now = new Date();
         let previewTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);
         if (previewTarget < now && now.getHours() > 12 && h < 12) previewTarget.setDate(previewTarget.getDate() + 1);
-
         const ampm = previewTarget.getHours() >= 12 ? 'PM' : 'AM';
         const displayH = previewTarget.getHours() % 12 || 12;
         const displayM = String(previewTarget.getMinutes()).padStart(2, '0');
-        
         document.getElementById('finalTime').innerHTML = `${displayH}:${displayM}<span class="ampm">${ampm}</span>`;
         document.getElementById('finalTime').style.color = "white";
         document.getElementById('statusLabel').innerText = walkActive ? "Will leave for desk at" : "Will return to desk at";
@@ -315,19 +284,14 @@
         const val = document.getElementById('startTime').value;
         if (!val) return;
         timerRunning = true;
-        
         let [h, m] = val.split(':').map(Number);
         let adjust = currentDuration;
         const walkActive = document.getElementById('walkMode').checked;
         if (walkActive) adjust -= 2;
-        
         let now = new Date();
         targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);
         if (targetTime < now && now.getHours() > 12 && h < 12) targetTime.setDate(targetTime.getDate() + 1);
-
         document.getElementById('statusLabel').innerText = walkActive ? "Leave for desk at" : "Return to desk at";
-        document.getElementById('finalTime').style.color = walkActive ? "var(--buffer-color)" : "white";
-        
         runCountdown();
     }
 
@@ -342,23 +306,27 @@
     function runCountdown() {
         if (countdownInterval) clearInterval(countdownInterval);
         const stick = document.getElementById('stickMan');
+        const finalTimeDisp = document.getElementById('finalTime');
         
         countdownInterval = setInterval(() => {
             let now = new Date().getTime();
             let distance = targetTime.getTime() - now;
             
-            if (distance > 0 && distance < 120000) { 
+            if (distance > 120000) { 
+                finalTimeDisp.style.color = "white";
+                stick.style.display = 'none';
+            } else if (distance > 0 && distance <= 120000) { 
+                finalTimeDisp.style.color = "var(--buffer-color)";
                 stick.style.display = 'block';
                 stick.style.animation = 'none';
-            } else if (distance <= 0) {
+            } else if (distance <= 0) { 
                 clearInterval(countdownInterval);
                 document.getElementById('countdown').innerText = "RETURN NOW!";
-                document.getElementById('countdown').style.color = "#ff5252";
+                document.getElementById('countdown').style.color = "var(--alert-red)";
+                finalTimeDisp.style.color = "var(--alert-red)";
                 stick.style.display = 'block';
                 stick.style.animation = 'shake 0.5s infinite';
                 return;
-            } else {
-                stick.style.display = 'none';
             }
             
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
