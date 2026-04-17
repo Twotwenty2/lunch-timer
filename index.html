@@ -11,7 +11,14 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
+    <meta name="theme-color" content="#1e293b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <title>You've got time</title>
+    
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIllvdSd2ZSBnb3QgdGltZSIsCiAgInNob3J0X25hbWUiOiAiWUdUIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxZTI5M2IiLAogICJ0aGVtZV9jb2xvciI6ICIjMWUyOTNiIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9wbGFjZWhvbGRlci5qcC8xOTJ4MTkyLnBuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0KfQ==">
+
     <style>
         :root {
             --primary-color: #7986cb; 
@@ -203,7 +210,7 @@
         <div id="countdown"></div>
     </div>
 
-    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank">☕ Consider a tip if this app is useful.</a>
+    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank">☕ Buy me a coffee.</a>
 </div>
 
 <script>
@@ -211,6 +218,23 @@
     let targetTime = null;
     let countdownInterval = null;
     let timerRunning = false;
+
+    // REGISTER PWA SERVICE WORKER
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const blob = new Blob([`
+                const CACHE_NAME = 'ygt-v1';
+                self.addEventListener('install', e => {
+                    e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['./'])));
+                });
+                self.addEventListener('fetch', e => {
+                    e.respondWith(caches.match(e.request).then(res => res || fetch(e.request)));
+                });
+            `], {type: 'application/javascript'});
+            const workerUrl = URL.createObjectURL(blob);
+            navigator.serviceWorker.register(workerUrl).catch(err => console.log('SW failed', err));
+        });
+    }
 
     window.onload = function() {
         resetToNow();
