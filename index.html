@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMVM052CMK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -19,152 +18,49 @@
     <title>You've got time</title>
     
     <link rel="manifest" href="/manifest.json">
-    
+
     <style>
         :root {
-            --primary-color: #7986cb; 
-            --accent-color: #f06292;   
-            --buffer-color: #26a69a; 
-            --text-dark: #f1f5f9;
-            --text-light: #cbd5e1;
-            --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            --popup-bg-solid: #0f172a; 
-            --ring-color: rgba(121, 134, 203, 0.5);
-            --highlight-bg: rgba(255, 255, 255, 0.25);
-            --coffee-color: #FFDD00;
-            --alert-red: #ff5252;
+            --primary-color: #7986cb; --accent-color: #f06292; --buffer-color: #26a69a; 
+            --text-dark: #f1f5f9; --text-light: #cbd5e1; --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            --popup-bg-solid: #0f172a; --coffee-color: #FFDD00; --alert-red: #ff5252;
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; margin: 0; background: var(--bg-gradient);
-            background-attachment: fixed; color: var(--text-dark); overflow-x: hidden;
-        }
-
-        .container {
-            position: relative; background: rgba(15, 23, 42, 0.95);
-            padding: 2rem; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            text-align: center; width: 90%; max-width: 420px; backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15); box-sizing: border-box;
-        }
-
-        .tz-trigger-wrapper {
-            position: absolute; top: 20px; right: 25px; display: flex; align-items: center;
-            gap: 6px; cursor: pointer; z-index: 20; opacity: 0.7; padding: 5px 10px;
-            border-radius: 20px; transition: all 0.2s ease;
-        }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: var(--bg-gradient); color: var(--text-dark); overflow-x: hidden; }
+        .container { position: relative; background: rgba(15, 23, 42, 0.95); padding: 2rem; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center; width: 90%; max-width: 420px; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-sizing: border-box; }
+        .tz-trigger-wrapper { position: absolute; top: 20px; right: 25px; display: flex; align-items: center; gap: 6px; cursor: pointer; z-index: 20; opacity: 0.7; padding: 5px 10px; border-radius: 20px; transition: 0.2s; }
         .tz-trigger-wrapper:hover { opacity: 1; background: rgba(255, 255, 255, 0.1); }
         .tz-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: white; letter-spacing: 0.05em; }
-
-        #timezonePopup {
-            display: none; position: absolute; top: 45px; right: 0; background-color: var(--popup-bg-solid);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 16px;
-            width: 240px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); z-index: 100; text-align: left;
-        }
-
+        #timezonePopup { display: none; position: absolute; top: 45px; right: 0; background-color: var(--popup-bg-solid); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 16px; width: 240px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); z-index: 100; text-align: left; }
         .tz-group-label { font-size: 0.6rem; color: var(--primary-color); text-transform: uppercase; font-weight: 800; margin: 10px 0 5px 0; letter-spacing: 0.1em; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tz-row { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.75rem; }
         .tz-time { color: #ffffff; font-weight: 700; font-family: monospace; }
-
         h1 { color: white; margin-bottom: 0.2rem; font-size: 2.1rem; font-weight: 700; }
         .instruction { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }
-
-        .cta-box {
-            background: rgba(121, 134, 203, 0.1);
-            border: 1px solid rgba(121, 134, 203, 0.3);
-            padding: 12px;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
+        .cta-box { background: rgba(121, 134, 203, 0.1); border: 1px solid rgba(121, 134, 203, 0.3); padding: 12px; border-radius: 15px; margin-bottom: 1.5rem; font-size: 0.8rem; color: var(--text-light); line-height: 1.4; font-weight: 500; }
         .input-group { display: flex; gap: 12px; margin-bottom: 1.2rem; align-items: center; }
-        input[type="time"] { 
-            flex-grow: 1; padding: 12px; border-radius: 15px; font-size: 1.5rem; font-weight: 700; 
-            text-align: center; color: white; background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2); outline: none; color-scheme: dark; transition: all 0.2s ease;
-        }
-        input[type="time"]:hover { background: rgba(255, 255, 255, 0.2); border-color: white; }
-
-        .refresh-btn { 
-            background: var(--primary-color); border: none; border-radius: 50%; width: 50px; height: 50px; 
-            cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; 
-        }
-        .refresh-btn:hover { transform: scale(1.1) rotate(90deg); box-shadow: 0 0 20px rgba(121, 134, 203, 0.4); }
-
+        input[type="time"] { flex-grow: 1; padding: 12px; border-radius: 15px; font-size: 1.5rem; font-weight: 700; text-align: center; color: white; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); outline: none; color-scheme: dark; transition: 0.2s; }
+        .refresh-btn { background: var(--primary-color); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .refresh-btn:hover { transform: scale(1.1) rotate(90deg); }
         .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }
-        
-        /* UPDATED: ANIMATED BUTTON CHOICES */
-        .btn-choice { 
-            padding: 12px 2px; 
-            border-radius: 10px; 
-            background: rgba(255, 255, 255, 0.05); 
-            color: white; 
-            font-weight: 600; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            cursor: pointer; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth spring-like feel */
-        }
-        
-        .btn-choice:hover { 
-            background: rgba(255, 255, 255, 0.15); 
-            transform: translateY(-3px) scale(1.05); /* Slight lift and grow */
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-choice.active { 
-            background: var(--primary-color); 
-            border-color: var(--primary-color); 
-            box-shadow: 0 0 20px rgba(121, 134, 203, 0.5); 
-            transform: scale(1); /* No scale on active to keep it grounded */
-        }
-        
-        .btn-choice.active:hover {
-            transform: translateY(-2px); /* Smaller lift when already active */
-        }
-
-        .toggle-box { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 12px 15px; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s ease; }
-        .toggle-box:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--buffer-color); }
-        
-        #bufferLabel { transition: color 0.3s ease; font-size: 0.9rem; font-weight: 600; color: var(--text-light); }
-
-        #mainActionBtn {
-            width: 100%; padding: 15px; border-radius: 15px; border: none; font-size: 1rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 1.5rem;
-            transition: all 0.3s ease; color: white;
-            background: linear-gradient(to right, var(--primary-color), #5c6bc0);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+        .btn-choice { padding: 12px 2px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: white; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-choice:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px) scale(1.05); }
+        .btn-choice.active { background: var(--primary-color); border-color: var(--primary-color); box-shadow: 0 0 20px rgba(121, 134, 203, 0.5); }
+        .toggle-box { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 12px 15px; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: 0.2s; }
+        #bufferLabel { transition: 0.3s; font-size: 0.9rem; font-weight: 600; color: var(--text-light); }
+        #mainActionBtn { width: 100%; padding: 15px; border-radius: 15px; border: none; font-size: 1rem; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-bottom: 1.5rem; transition: 0.3s; color: white; background: linear-gradient(to right, var(--primary-color), #5c6bc0); }
         #mainActionBtn.reset-mode { background: #455a64; }
-
-        .result-area { 
-            background: rgba(0, 0, 0, 0.5); padding: 1.5rem; border-radius: 20px; 
-            display: flex; flex-direction: column; align-items: center; position: relative; 
-            min-height: 160px; justify-content: center;
-        }
-
-        #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0; line-height: 1; transition: color 0.5s ease; }
-        .ampm { font-size: 1.5rem; margin-left: 5px; }
+        .result-area { background: rgba(0, 0, 0, 0.5); padding: 1.5rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; position: relative; min-height: 160px; justify-content: center; }
+        #finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0; line-height: 1; transition: 0.5s; }
         #countdown { font-size: 1.1rem; font-weight: 600; color: var(--accent-color); margin-top: 10px; min-height: 1.2em; }
-
         .stick-man { width: 30px; height: 50px; position: absolute; top: 15px; left: 20px; display: none; opacity: 0.7; }
         .stick-man div { position: absolute; background: white; border-radius: 2px; }
-        .head { width: 10px; height: 10px; border: 1.5px solid white; background: none !important; border-radius: 50% !important; left: 10px; top: 0; }
+        .head { width: 10px; height: 10px; border: 1.5px solid white; border-radius: 50% !important; left: 10px; top: 0; }
         .body { width: 2px; height: 18px; left: 14px; top: 10px; }
-        .leg-l { width: 2px; height: 12px; left: 11px; top: 27px; transform: rotate(20deg); }
-        .leg-r { width: 2px; height: 12px; left: 17px; top: 27px; transform: rotate(-20deg); }
-        .arm-l { width: 12px; height: 2px; left: 3px; top: 16px; transform: rotate(-10deg); }
-        .arm-r { width: 12px; height: 2px; left: 15px; top: 16px; transform-origin: left; animation: tap 0.6s infinite alternate ease-in-out; }
-        
+        .arm-r { width: 12px; height: 2px; left: 15px; top: 16px; transform-origin: left; animation: tap 0.6s infinite alternate; }
         @keyframes tap { from { transform: rotate(10deg); } to { transform: rotate(-70deg); } }
         @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
-
-        .coffee-link { display: block; margin-top: 25px; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s ease; border: 1px solid transparent; }
+        .coffee-link { display: block; margin-top: 25px; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.2s; border: 1px solid transparent; }
         .coffee-link:hover { border-color: var(--coffee-color); }
     </style>
 </head>
@@ -173,27 +69,21 @@
 <div class="container">
     <div class="tz-trigger-wrapper" id="tzTrigger" onclick="event.stopPropagation(); togglePopup();">
         <span class="tz-label">World Clock</span>
-        <div class="corner-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-        </div>
         <div id="timezonePopup">
             <div class="tz-group-label">Americas</div>
-            <div class="tz-row"><span class="tz-name">ET</span><span class="tz-time" id="tz-et"></span></div>
-            <div class="tz-row"><span class="tz-name">CT</span><span class="tz-time" id="tz-ct"></span></div>
-            <div class="tz-row"><span class="tz-name">PT</span><span class="tz-time" id="tz-pt"></span></div>
+            <div class="tz-row"><span>ET</span><span class="tz-time" id="tz-et"></span></div>
+            <div class="tz-row"><span>CT</span><span class="tz-time" id="tz-ct"></span></div>
+            <div class="tz-row"><span>PT</span><span class="tz-time" id="tz-pt"></span></div>
             <div class="tz-group-label">Global</div>
-            <div class="tz-row"><span class="tz-name">London</span><span class="tz-time" id="tz-lon"></span></div>
-            <div class="tz-row"><span class="tz-name">Tokyo</span><span class="tz-time" id="tz-tky"></span></div>
-            <div class="tz-row"><span class="tz-name">Sydney</span><span class="tz-time" id="tz-syd"></span></div>
+            <div class="tz-row"><span>London</span><span class="tz-time" id="tz-lon"></span></div>
+            <div class="tz-row"><span>Tokyo</span><span class="tz-time" id="tz-tky"></span></div>
+            <div class="tz-row"><span>Sydney</span><span class="tz-time" id="tz-syd"></span></div>
         </div>
     </div>
 
     <h1>You've got time</h1>
     <p class="instruction">A workplace break tracker</p>
-
-    <div class="cta-box">
-        To begin, put in a start time and then choose the break time.
-    </div>
+    <div class="cta-box">To begin, put in a start time and then choose the break time.</div>
     
     <div class="input-group">
         <button class="refresh-btn" onclick="resetToNow()"><svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></button>
@@ -215,9 +105,7 @@
 
     <div class="result-area">
         <div class="stick-man" id="stickMan">
-            <div class="head"></div><div class="body"></div>
-            <div class="arm-l"></div><div class="arm-r"></div>
-            <div class="leg-l"></div><div class="leg-r"></div>
+            <div class="head"></div><div class="body"></div><div class="arm-r"></div>
         </div>
         <span id="statusLabel" style="font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;">Set Time & Start</span>
         <div id="finalTime">--:--</div>
@@ -233,19 +121,12 @@
     let countdownInterval = null;
     let timerRunning = false;
 
+    // PHYSICAL SERVICE WORKER REGISTRATION (Better for PWABuilder)
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            const blob = new Blob([`
-                const CACHE_NAME = 'ygt-v1';
-                self.addEventListener('install', e => {
-                    e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['./'])));
-                });
-                self.addEventListener('fetch', e => {
-                    e.respondWith(caches.match(e.request).then(res => res || fetch(e.request)));
-                });
-            `], {type: 'application/javascript'});
-            const workerUrl = URL.createObjectURL(blob);
-            navigator.serviceWorker.register(workerUrl);
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('Store-Ready SW Registered'))
+                .catch(err => console.log('Registration failed', err));
         });
     }
 
@@ -281,8 +162,7 @@
     function setMode(m) {
         currentDuration = m;
         document.querySelectorAll('.btn-choice').forEach(b => b.classList.remove('active'));
-        const activeBtn = document.querySelector(`.btn-choice[data-min="${m}"]`);
-        if(activeBtn) activeBtn.classList.add('active');
+        event.target.classList.add('active');
         calculatePreview();
     }
 
@@ -290,19 +170,15 @@
         const val = document.getElementById('startTime').value;
         const walkActive = document.getElementById('walkMode').checked;
         document.getElementById('bufferLabel').style.color = walkActive ? "var(--buffer-color)" : "var(--text-light)";
-
         if (!val || timerRunning) return;
         let [h, m] = val.split(':').map(Number);
-        let adjust = currentDuration;
-        if (walkActive) adjust -= 2;
+        let adjust = currentDuration - (walkActive ? 2 : 0);
         let now = new Date();
         let previewTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);
-        if (previewTarget < now && now.getHours() > 12 && h < 12) previewTarget.setDate(previewTarget.getDate() + 1);
         const ampm = previewTarget.getHours() >= 12 ? 'PM' : 'AM';
         const displayH = previewTarget.getHours() % 12 || 12;
         const displayM = String(previewTarget.getMinutes()).padStart(2, '0');
-        document.getElementById('finalTime').innerHTML = `${displayH}:${displayM}<span class="ampm">${ampm}</span>`;
-        document.getElementById('finalTime').style.color = "white";
+        document.getElementById('finalTime').innerHTML = `${displayH}:${displayM}<span style="font-size:1.5rem; margin-left:5px;">${ampm}</span>`;
         document.getElementById('statusLabel').innerText = walkActive ? "Will leave for desk at" : "Will return to desk at";
         document.getElementById('countdown').innerText = `Duration: ${currentDuration}m`;
     }
@@ -321,16 +197,13 @@
     }
 
     function startTimer() {
-        const val = document.getElementById('startTime').value;
-        if (!val) return;
         timerRunning = true;
-        let [h, m] = val.split(':').map(Number);
-        let adjust = currentDuration;
+        const val = document.getElementById('startTime').value;
         const walkActive = document.getElementById('walkMode').checked;
-        if (walkActive) adjust -= 2;
+        let [h, m] = val.split(':').map(Number);
+        let adjust = currentDuration - (walkActive ? 2 : 0);
         let now = new Date();
         targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);
-        if (targetTime < now && now.getHours() > 12 && h < 12) targetTime.setDate(targetTime.getDate() + 1);
         document.getElementById('statusLabel').innerText = walkActive ? "Leave for desk at" : "Return to desk at";
         runCountdown();
     }
@@ -339,36 +212,28 @@
         timerRunning = false;
         if (countdownInterval) clearInterval(countdownInterval);
         document.getElementById('stickMan').style.display = 'none';
-        document.getElementById('countdown').innerText = "";
+        document.getElementById('finalTime').style.color = "white";
         calculatePreview();
     }
 
     function runCountdown() {
         if (countdownInterval) clearInterval(countdownInterval);
-        const stick = document.getElementById('stickMan');
-        const finalTimeDisp = document.getElementById('finalTime');
-        
         countdownInterval = setInterval(() => {
             let now = new Date().getTime();
             let distance = targetTime.getTime() - now;
-            
-            if (distance > 120000) { 
-                finalTimeDisp.style.color = "white";
-                stick.style.display = 'none';
-            } else if (distance > 0 && distance <= 120000) { 
-                finalTimeDisp.style.color = "var(--buffer-color)";
-                stick.style.display = 'block';
-                stick.style.animation = 'none';
-            } else if (distance <= 0) { 
+            if (distance <= 0) {
                 clearInterval(countdownInterval);
                 document.getElementById('countdown').innerText = "RETURN NOW!";
                 document.getElementById('countdown').style.color = "var(--alert-red)";
-                finalTimeDisp.style.color = "var(--alert-red)";
-                stick.style.display = 'block';
-                stick.style.animation = 'shake 0.5s infinite';
+                document.getElementById('finalTime').style.color = "var(--alert-red)";
+                document.getElementById('stickMan').style.display = 'block';
+                document.getElementById('stickMan').style.animation = 'shake 0.5s infinite';
                 return;
             }
-            
+            if (distance <= 120000) { 
+                document.getElementById('finalTime').style.color = "var(--buffer-color)";
+                document.getElementById('stickMan').style.display = 'block';
+            }
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
             document.getElementById('countdown').innerText = `Time left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -376,6 +241,5 @@
         }, 1000);
     }
 </script>
-
 </body>
 </html>
