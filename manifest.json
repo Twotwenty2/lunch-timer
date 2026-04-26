@@ -1,0 +1,20 @@
+{
+  "name": "You've Got Time",
+  "short_name": "YGT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "https://placeholder.jp/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://placeholder.jp/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
