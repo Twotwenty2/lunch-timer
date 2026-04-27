@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- ── Google Analytics ─────────────────────────────────────────────── -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMVM052CMK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,14 +12,38 @@
       gtag('config', 'G-HMVM052CMK');
     </script>
 
+    <!-- ── Viewport & PWA core ──────────────────────────────────────────── -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1e293b">
+    <meta name="description" content="A workplace break timer that tells you exactly when to return to your desk.">
+
+    <!-- ── PWABuilder / Web App Manifest ────────────────────────────────── -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- ── Apple / iOS PWA tags ─────────────────────────────────────────── -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
+    <meta name="apple-mobile-web-app-title" content="Break Tracker">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
+
+    <!-- ── Favicon ──────────────────────────────────────────────────────── -->
+    <link rel="icon" type="image/png" sizes="32x32"  href="/icons/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+
+    <!-- ── Microsoft / Windows PWA tags ─────────────────────────────────── -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#1e293b">
+    <meta name="msapplication-config" content="none">
+
+    <!-- ── Open Graph (nice-to-have for PWABuilder score) ───────────────── -->
+    <meta property="og:title" content="You've Got Time – Break Tracker">
+    <meta property="og:description" content="A workplace break timer that tells you exactly when to return to your desk.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/icons/icon-512x512.png">
+
     <title>You've got time</title>
-    
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 
     <style>
         :root {
@@ -112,7 +138,7 @@
         <div id="countdown"></div>
     </div>
 
-    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank">☕ Feel free to tip if you found this useful.</a>
+    <a href="https://www.buymeacoffee.com/Saminoski" class="coffee-link" target="_blank" rel="noopener">☕ Feel free to tip if you found this useful.</a>
 </div>
 
 <script>
@@ -121,12 +147,24 @@
     let countdownInterval = null;
     let timerRunning = false;
 
-    // PHYSICAL SERVICE WORKER REGISTRATION
+    // ── Service Worker Registration ──────────────────────────────────────
+    // Must use an absolute path so the SW scope covers the whole origin.
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('SW Registered'))
-                .catch(err => console.log('Registration failed', err));
+            navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                .then(reg => {
+                    console.log('SW registered, scope:', reg.scope);
+                    // Prompt user to refresh if a new SW is waiting
+                    reg.addEventListener('updatefound', () => {
+                        const newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('New version available – reload to update.');
+                            }
+                        });
+                    });
+                })
+                .catch(err => console.warn('SW registration failed:', err));
         });
     }
 
