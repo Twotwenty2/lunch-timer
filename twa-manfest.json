@@ -1,23 +1,21 @@
-cat <<EOF > twa-manifest.json
 {
   "packageId": "com.saminoski.lunchtimer",
   "host": "lunch-timer-ten.vercel.app",
-  "name": "Lunch Timer",
-  "launcherName": "Lunch Timer",
+  "name": "You've Got Time – Break Tracker",
+  "launcherName": "Break Tracker",
   "display": "standalone",
-  "themeColor": "#000000",
-  "navigationColor": "#000000",
-  "backgroundColor": "#ffffff",
+  "themeColor": "#1e293b",
+  "navigationColor": "#1e293b",
+  "backgroundColor": "#1e293b",
   "enableNotifications": false,
   "startUrl": "/",
-  "iconUrl": "https://placehold.jp/512x512.png",
+  "iconUrl": "https://lunch-timer-ten.vercel.app/icons/icon-512x512.png",
+  "maskableIconUrl": "https://lunch-timer-ten.vercel.app/icons/icon-512x512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "/Users/saminoski/Developer/my-pwa-app/android.keystore",
     "alias": "android"
-  }
-}
-EOF
+  },
   "appVersionName": "1",
   "appVersionCode": 1,
   "shortcuts": [
@@ -33,10 +31,10 @@ EOF
   "fallbackType": "customtabs",
   "features": {
     "playBilling": {
-      "enabled": true
+      "enabled": false
     },
     "locationDelegation": {
-      "enabled": true
+      "enabled": false
     }
   },
   "alphaDependencies": {
