@@ -1,0 +1,59 @@
+cat <<EOF > twa-manifest.json
+{
+  "packageId": "com.saminoski.lunchtimer",
+  "host": "lunch-timer-ten.vercel.app",
+  "name": "Lunch Timer",
+  "launcherName": "Lunch Timer",
+  "display": "standalone",
+  "themeColor": "#000000",
+  "navigationColor": "#000000",
+  "backgroundColor": "#ffffff",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://placehold.jp/512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/Users/saminoski/Developer/my-pwa-app/android.keystore",
+    "alias": "android"
+  }
+}
+EOF
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "Start 30-Min Break",
+      "shortName": "30m Break",
+      "url": "https://lunch-timer-ten.vercel.app/?duration=30",
+      "chosenIconUrl": "https://lunch-timer-ten.vercel.app/icons/icon-96x96.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://lunch-timer-ten.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "playBilling": {
+      "enabled": true
+    },
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://lunch-timer-ten.vercel.app/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [],
+  "appVersion": "1"
+}
