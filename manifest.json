@@ -1,3 +1,4 @@
+cat <<EOF > manifest.json
 {
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
@@ -27,3 +28,4 @@
   ],
   "prefer_related_applications": false
 }
+EOF
