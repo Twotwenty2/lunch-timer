@@ -1,4 +1,3 @@
-cat <<EOF > manifest.json
 {
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
@@ -15,7 +14,7 @@ cat <<EOF > manifest.json
   "icons": [
     {
       "src": "/icon-512x512.png",
-      "sizes": "512x512",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
     },
@@ -28,4 +27,3 @@ cat <<EOF > manifest.json
   ],
   "prefer_related_applications": false
 }
-EOF
