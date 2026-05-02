@@ -195,7 +195,17 @@
         currentDuration = m;
         document.querySelectorAll('.btn-choice').forEach(b => b.classList.remove('active'));
         event.target.classList.add('active');
-        calculatePreview();
+        if (timerRunning) {
+            const val = document.getElementById('startTime').value;
+            const walkActive = document.getElementById('walkMode').checked;
+            let [h, min] = val.split(':').map(Number);
+            let adjust = currentDuration - (walkActive ? 2 : 0);
+            let now = new Date();
+            targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, min + adjust);
+            runCountdown();
+        } else {
+            calculatePreview();
+        }
     }
 
     function calculatePreview() {
@@ -278,12 +288,19 @@
             document.getElementById('countdown').innerText = `Time left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
             document.getElementById('countdown').style.color = "var(--accent-color)";
 
-            // Schedule next tick to fire exactly when the next whole second rolls over
-            let drift = distance % 1000;
-            countdownInterval = setTimeout(tick, drift || 1000);
+            // Schedule next tick exactly on the next whole-second boundary
+            let msUntilNextSecond = distance % 1000;
+            if (msUntilNextSecond === 0) msUntilNextSecond = 1000;
+            countdownInterval = setTimeout(tick, msUntilNextSecond);
         }
 
-        tick();
+        // Align the very first tick to the next whole-second boundary
+        // so the counter is in phase from the start and never skips.
+        let now = new Date().getTime();
+        let distance = targetTime.getTime() - now;
+        let msUntilNextSecond = distance % 1000;
+        if (msUntilNextSecond === 0) msUntilNextSecond = 1000;
+        countdownInterval = setTimeout(tick, msUntilNextSecond);
     }
 </script>
 </body>
