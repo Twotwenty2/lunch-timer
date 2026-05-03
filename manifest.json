@@ -1,4 +1,4 @@
-
+cat > manifest.json << 'EOF'
 {
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
@@ -13,12 +13,6 @@
   "dir": "ltr",
   "categories": ["productivity", "utilities"],
   "icons": [
-    {
-      "src": "https://lunch-timer-ten.vercel.app/icons/icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
     {
       "src": "https://lunch-timer-ten.vercel.app/icons/icon-192x192.png",
       "sizes": "192x192",
@@ -40,4 +34,4 @@
   ],
   "prefer_related_applications": false
 }
-
+EOF
