@@ -1,4 +1,4 @@
-cat > public/manifest.json << 'EOF'
+
 {
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
@@ -40,4 +40,4 @@ cat > public/manifest.json << 'EOF'
   ],
   "prefer_related_applications": false
 }
-EOF
+
