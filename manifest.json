@@ -28,14 +28,14 @@
   "screenshots": [
     {
       "src": "/screenshot-mobile.png",
-      "sizes": "1080x1920",
+      "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Mobile view of the Break Tracker"
     },
     {
       "src": "/screenshot-desktop.png",
-      "sizes": "1920x1080",
+      "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Desktop view of the Break Tracker"
