@@ -1,4 +1,3 @@
-
 {
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
@@ -14,14 +13,44 @@
   "categories": ["productivity", "utilities"],
   "icons": [
     {
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "https://lunch-timer-ten.vercel.app/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "https://lunch-timer-ten.vercel.app/icons/icon-512x512.png",
-      "sizes": "512x512",
+      "src": "https://lunch-timer-ten.vercel.app/icons/icon-384x384.png",
+      "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
@@ -29,9 +58,26 @@
       "src": "https://lunch-timer-ten.vercel.app/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://lunch-timer-ten.vercel.app/screenshots/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Break Tracker home screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start 30-Min Break",
+      "short_name": "30m Break",
+      "description": "Quickly start a 30-minute break timer",
+      "url": "https://lunch-timer-ten.vercel.app/?duration=30",
+      "icons": [{ "src": "https://lunch-timer-ten.vercel.app/icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ],
   "prefer_related_applications": false
 }
-
