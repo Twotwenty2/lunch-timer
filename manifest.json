@@ -1,17 +1,4 @@
-{
-  "name": "You've Got Time – Break Tracker",
-  "short_name": "Break Tracker",
-  "description": "A workplace break timer that tells you exactly when to return to your desk.",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#1e293b",
-  "background_color": "#1e293b",
-  "lang": "en",
-  "dir": "ltr",
-  "categories": ["productivity", "utilities"],
-  "icons": [
+"icons": [
     {
       "src": "icon-192x192.png",
       "sizes": "192x192",
@@ -24,22 +11,4 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "screenshot-mobile.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Mobile view of the Break Tracker"
-    },
-    {
-      "src": "screenshot-desktop.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Desktop view of the Break Tracker"
-    }
-  ],
-  "prefer_related_applications": false
-}
+  ]
