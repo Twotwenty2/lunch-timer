@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Google Analytics ─────────────────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-HMVM052CMK"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.dataLayer = window.dataLayer || [];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>function gtag(){dataLayer.push(arguments);}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gtag('js', new Date());</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gtag('config', 'G-HMVM052CMK');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Viewport &amp; PWA core ──────────────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="theme-color" content="#1e293b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="description" content="A workplace break timer that tells you exactly when to return to your desk."&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── PWABuilder / Web App Manifest ────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="manifest" href="/manifest.json"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Apple / iOS PWA tags ─────────────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="apple-mobile-web-app-title" content="Break Tracker"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="apple-touch-icon" href="/icons/icon-152x152.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Favicon ──────────────────────────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="icon" type="image/png" sizes="32x32"<span class="Apple-converted-space">  </span>href="/icons/icon-96x96.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Microsoft / Windows PWA tags ─────────────────────────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="msapplication-TileImage" content="/icons/icon-144x144.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="msapplication-TileColor" content="#1e293b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="msapplication-config" content="none"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ── Open Graph (nice-to-have for PWABuilder score) ───────────────── --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta property="og:title" content="You've Got Time – Break Tracker"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta property="og:description" content="A workplace break timer that tells you exactly when to return to your desk."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta property="og:type" content="website"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta property="og:image" content="/icons/icon-512x512.png"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;You've got time&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-color: #7986cb; --accent-color: #f06292; --buffer-color: #26a69a;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-dark: #f1f5f9; --text-light: #cbd5e1; --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--popup-bg-solid: #0f172a; --coffee-color: #FFDD00; --alert-red: #ff5252;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: var(--bg-gradient); color: var(--text-dark); overflow-x: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container { position: relative; background: rgba(15, 23, 42, 0.95); padding: 2rem; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center; width: 90%; max-width: 420px; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-sizing: border-box; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-trigger-wrapper { position: absolute; top: 20px; right: 25px; display: flex; align-items: center; gap: 6px; cursor: pointer; z-index: 20; opacity: 0.7; padding: 5px 10px; border-radius: 20px; transition: 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-trigger-wrapper:hover { opacity: 1; background: rgba(255, 255, 255, 0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: white; letter-spacing: 0.05em; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#timezonePopup { display: none; position: absolute; top: 45px; right: 0; background-color: var(--popup-bg-solid); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 16px; width: 240px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); z-index: 100; text-align: left; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-group-label { font-size: 0.6rem; color: var(--primary-color); text-transform: uppercase; font-weight: 800; margin: 10px 0 5px 0; letter-spacing: 0.1em; border-bottom: 1px solid rgba(255,255,255,0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-row { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.75rem; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tz-time { color: #ffffff; font-weight: 700; font-family: monospace; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 { color: white; margin-bottom: 0.2rem; font-size: 2.1rem; font-weight: 700; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.instruction { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cta-box { background: rgba(121, 134, 203, 0.1); border: 1px solid rgba(121, 134, 203, 0.3); padding: 12px; border-radius: 15px; margin-bottom: 1.5rem; font-size: 0.8rem; color: var(--text-light); line-height: 1.4; font-weight: 500; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input-group { display: flex; gap: 12px; margin-bottom: 1.2rem; align-items: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input[type="time"] { flex-grow: 1; padding: 12px; border-radius: 15px; font-size: 1.5rem; font-weight: 700; text-align: center; color: white; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); outline: none; color-scheme: dark; transition: 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.refresh-btn { background: var(--primary-color); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.refresh-btn:hover { transform: scale(1.1) rotate(90deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.2rem; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-choice { padding: 12px 2px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: white; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-choice:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px) scale(1.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-choice.active { background: var(--primary-color); border-color: var(--primary-color); box-shadow: 0 0 20px rgba(121, 134, 203, 0.5); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toggle-box { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 12px 15px; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#bufferLabel { transition: 0.3s; font-size: 0.9rem; font-weight: 600; color: var(--text-light); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#mainActionBtn { width: 100%; padding: 15px; border-radius: 15px; border: none; font-size: 1rem; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-bottom: 1.5rem; transition: 0.3s; color: white; background: linear-gradient(to right, var(--primary-color), #5c6bc0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#mainActionBtn.reset-mode { background: #455a64; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.result-area { background: rgba(0, 0, 0, 0.5); padding: 1.5rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; position: relative; min-height: 160px; justify-content: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#finalTime { font-size: 3.8rem; font-weight: 800; color: white; margin: 0; line-height: 1; transition: 0.5s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#countdown { font-size: 1.1rem; font-weight: 600; color: var(--accent-color); margin-top: 10px; min-height: 1.2em; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stick-man { width: 30px; height: 50px; position: absolute; top: 15px; left: 20px; display: none; opacity: 0.7; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stick-man div { position: absolute; background: white; border-radius: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.head { width: 10px; height: 10px; border: 1.5px solid white; border-radius: 50% !important; left: 10px; top: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.body { width: 2px; height: 18px; left: 14px; top: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.arm-r { width: 12px; height: 2px; left: 15px; top: 16px; transform-origin: left; animation: tap 0.6s infinite alternate; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes tap { from { transform: rotate(10deg); } to { transform: rotate(-70deg); } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tz-trigger-wrapper" id="tzTrigger" onclick="event.stopPropagation(); togglePopup();"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tz-label"&gt;World Clock&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="timezonePopup"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-group-label"&gt;Americas&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;ET&lt;/span&gt;&lt;span class="tz-time" id="tz-et"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;CT&lt;/span&gt;&lt;span class="tz-time" id="tz-ct"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;PT&lt;/span&gt;&lt;span class="tz-time" id="tz-pt"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-group-label"&gt;Global&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;London&lt;/span&gt;&lt;span class="tz-time" id="tz-lon"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;Tokyo&lt;/span&gt;&lt;span class="tz-time" id="tz-tky"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="tz-row"&gt;&lt;span&gt;Sydney&lt;/span&gt;&lt;span class="tz-time" id="tz-syd"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;You've got time&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="instruction"&gt;A workplace break tracker&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cta-box"&gt;To begin, put in a start time and then choose the break time.&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="input-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="refresh-btn" onclick="resetToNow()"&gt;&lt;svg viewBox="0 0 24 24" width="24" height="24" fill="white"&gt;&lt;path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/&gt;&lt;/svg&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="time" id="startTime" oninput="calculatePreview()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="duration-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-choice" data-min="15" onclick="setMode(15)"&gt;15m&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-choice active" data-min="30" onclick="setMode(30)"&gt;30m&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-choice" data-min="60" onclick="setMode(60)"&gt;1h&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label class="toggle-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="bufferLabel"&gt;2m Walk Back Buffer&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" id="walkMode" onchange="calculatePreview()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/label&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="mainActionBtn" onclick="handleMainAction()"&gt;Start Timer&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="result-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stick-man" id="stickMan"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="head"&gt;&lt;/div&gt;&lt;div class="body"&gt;&lt;/div&gt;&lt;div class="arm-r"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="statusLabel" style="font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;"&gt;Set Time &amp; Start&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="finalTime"&gt;--:--&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="countdown"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentDuration = 30;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let targetTime = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let countdownInterval = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let timerRunning = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ── Service Worker Registration ──────────────────────────────────────</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if ('serviceWorker' in navigator) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('load', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigator.serviceWorker.register('/sw.js', { scope: '/' })</p>
+<p class="p1"><span class="Apple-converted-space">                </span>.then(reg =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>console.log('SW registered, scope:', reg.scope);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>reg.addEventListener('updatefound', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const newWorker = reg.installing;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>newWorker.addEventListener('statechange', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>if (newWorker.state === 'installed' &amp;&amp; navigator.serviceWorker.controller) {</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>console.log('New version available – reload to update.');</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>})</p>
+<p class="p1"><span class="Apple-converted-space">                </span>.catch(err =&gt; console.warn('SW registration failed:', err));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onload = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resetToNow();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateGlobalTimes();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setInterval(updateGlobalTimes, 30000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const popup = document.getElementById('timezonePopup');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (popup &amp;&amp; !document.getElementById('tzTrigger').contains(e.target)) popup.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function togglePopup() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const p = document.getElementById('timezonePopup');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.style.display = (p.style.display === 'block') ? 'none' : 'block';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateGlobalTimes() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const zones = { 'tz-et': 'America/New_York', 'tz-ct': 'America/Chicago', 'tz-pt': 'America/Los_Angeles', 'tz-lon': 'Europe/London', 'tz-tky': 'Asia/Tokyo', 'tz-syd': 'Australia/Sydney' };</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (const [id, zone] of Object.entries(zones)) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const el = document.getElementById(id);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(el) el.innerText = new Date().toLocaleTimeString('en-US', { timeZone: zone, hour: '2-digit', minute: '2-digit', hour12: true });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetToNow() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const d = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('startTime').value = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>calculatePreview();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setMode(m) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>currentDuration = m;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.btn-choice').forEach(b =&gt; b.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>event.target.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (timerRunning) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const val = document.getElementById('startTime').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const walkActive = document.getElementById('walkMode').checked;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let [h, min] = val.split(':').map(Number);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let adjust = currentDuration - (walkActive ? 2 : 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let now = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, min + adjust);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>runCountdown();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>calculatePreview();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculatePreview() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const val = document.getElementById('startTime').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const walkActive = document.getElementById('walkMode').checked;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bufferLabel').style.color = walkActive ? "var(--buffer-color)" : "var(--text-light)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!val || timerRunning) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let [h, m] = val.split(':').map(Number);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let adjust = currentDuration - (walkActive ? 2 : 0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let now = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let previewTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ampm = previewTarget.getHours() &gt;= 12 ? 'PM' : 'AM';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const displayH = previewTarget.getHours() % 12 || 12;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const displayM = String(previewTarget.getMinutes()).padStart(2, '0');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('finalTime').innerHTML = `${displayH}:${displayM}&lt;span style="font-size:1.5rem; margin-left:5px;"&gt;${ampm}&lt;/span&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('statusLabel').innerText = walkActive ? "Will leave for desk at" : "Will return to desk at";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('countdown').innerText = `Duration: ${currentDuration}m`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function handleMainAction() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const btn = document.getElementById('mainActionBtn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!timerRunning) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startTimer();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.innerText = "Reset Timer";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.classList.add('reset-mode');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.innerText = "Start Timer";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.classList.remove('reset-mode');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function startTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>timerRunning = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const val = document.getElementById('startTime').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const walkActive = document.getElementById('walkMode').checked;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let [h, m] = val.split(':').map(Number);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let adjust = currentDuration - (walkActive ? 2 : 0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let now = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m + adjust);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('statusLabel').innerText = walkActive ? "Leave for desk at" : "Return to desk at";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>runCountdown();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function stopTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>timerRunning = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (countdownInterval) clearTimeout(countdownInterval);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>countdownInterval = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('stickMan').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('finalTime').style.color = "white";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>calculatePreview();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function runCountdown() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (countdownInterval) clearTimeout(countdownInterval);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>countdownInterval = null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function tick() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!timerRunning) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let now = new Date().getTime();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let distance = targetTime.getTime() - now;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (distance &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('countdown').innerText = "RETURN NOW!";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('countdown').style.color = "var(--alert-red)";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('finalTime').style.color = "var(--alert-red)";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('stickMan').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('stickMan').style.animation = 'shake 0.5s infinite';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (distance &lt;= 120000) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('finalTime').style.color = "var(--buffer-color)";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('stickMan').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let seconds = Math.floor((distance % (1000 * 60)) / 1000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('countdown').innerText = `Time left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('countdown').style.color = "var(--accent-color)";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Schedule next tick exactly on the next whole-second boundary</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let msUntilNextSecond = distance % 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (msUntilNextSecond === 0) msUntilNextSecond = 1000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>countdownInterval = setTimeout(tick, msUntilNextSecond);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Align the very first tick to the next whole-second boundary</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// so the counter is in phase from the start and never skips.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let now = new Date().getTime();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let distance = targetTime.getTime() - now;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let msUntilNextSecond = distance % 1000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (msUntilNextSecond === 0) msUntilNextSecond = 1000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>countdownInterval = setTimeout(tick, msUntilNextSecond);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
