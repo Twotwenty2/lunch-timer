@@ -41,14 +41,14 @@
   "screenshots": [
     {
       "src": "/screenshots/screenshot-mobile.png",
-      "sizes": "909x1575",
+      "sizes": "443x768",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Mobile view of the break timer"
     },
     {
       "src": "/screenshots/screenshot-mobile.png",
-      "sizes": "909x1575",
+      "sizes": "443x768",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Desktop view of the break timer"
