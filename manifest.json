@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "You've Got Time – Break Tracker",
   "short_name": "Break Tracker",
   "description": "A workplace break timer that tells you exactly when to return to your desk.",
@@ -35,6 +36,15 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://lunch-timer-ebon.vercel.app/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Break Tracker home screen"
     }
   ],
   "prefer_related_applications": false
