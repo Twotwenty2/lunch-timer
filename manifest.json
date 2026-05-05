@@ -40,8 +40,8 @@
   ],
   "screenshots": [
     {
-      "src": "https://lunch-timer-ebon.vercel.app/icons/icon-512x512.png",
-      "sizes": "512x512",
+      "src": "https://lunch-timer-ebon.vercel.app/screenshots/break%20timer.png",
+      "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Break Tracker home screen"
