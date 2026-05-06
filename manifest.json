@@ -48,7 +48,7 @@
     },
     {
       "src": "/screenshots/screenshot-mobile.png",
-      "sizes": "443x768",
+      "sizes": "1037x662",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Desktop view of the break timer"
