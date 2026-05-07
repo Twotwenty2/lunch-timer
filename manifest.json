@@ -40,7 +40,7 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/screenshot-mobile.png",
+      "src": "/screenshots/screenshot-small.png",
       "sizes": "443x768",
       "type": "image/png",
       "form_factor": "narrow",
