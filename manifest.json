@@ -40,14 +40,14 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/screenshot-small.png",
+      "src": "/screenshots/screenshot-mobile.png",
       "sizes": "443x768",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Mobile view of the break timer"
     },
     {
-      "src": "/screenshots/screenshot-mobile.png",
+      "src": "/screenshots/screenshot-desktop.png",
       "sizes": "1037x1662",
       "type": "image/png",
       "form_factor": "wide",
